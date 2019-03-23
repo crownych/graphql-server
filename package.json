@@ -1,0 +1,48 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "yarn clean && tsc",
+    "lint": "tslint -p tsconfig.json",
+    "lint-fix": "tslint --fix -p tsconfig.json",
+    "start": "ts-node -r dotenv/config src/server.ts",
+    "test": "mocha -r ts-node/register ./tests/**/*.test.ts",
+    "serve": "node -r dotenv/config dist/src/server.js",
+    "doc": "typedoc --out dist/docs --mode modules ./src",
+    "build-docker": "yarn build && docker build -t graphql-server .",
+    "run-docker": "docker run -p 4001:4001 --rm --name graphql-server graphql-server"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.3.1",
+    "base64url": "^3.0.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4",
+    "inversify": "^5.0.1",
+    "lodash": "^4.17.11",
+    "merge-graphql-schemas": "^1.5.8",
+    "mongoose": "^5.4.16",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/dotenv": "^6.1.0",
+    "@types/graphql": "^14.0.5",
+    "@types/lodash": "^4.14.120",
+    "@types/mocha": "^5.2.5",
+    "@types/mongoose": "^5.3.20",
+    "apollo-server-testing": "^2.4.8",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.1",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "tslint-microsoft-contrib": "^6.0.0",
+    "typescript": "^3.2.4"
+  }
+}

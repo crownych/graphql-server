@@ -1,0 +1,10 @@
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY ./dist/src /app/dist/
+COPY ./package.json ./.env* /app/
+
+RUN yarn install --production
+
+CMD [ "node", "-r", "dotenv/config", "/app/dist/server.js" ]

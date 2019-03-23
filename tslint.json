@@ -1,0 +1,39 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-microsoft-contrib"
+  ],
+  "jsRules": {},
+  "rules": {
+    "newline-per-chained-call": false,
+    "export-name": false,
+    "jsdoc-format": true,
+    "newline-before-return": false,
+    "no-any": false,
+    "no-backbone-get-set-outside-model": false,
+    "no-console": false,
+    "no-implicit-dependencies": false,
+    "no-relative-imports": false,
+    "no-unsafe-any": false,
+    "no-import-side-effect": [true, { "ignore-pattern": "/*.test.ts/" }],
+    "no-internal-module": true,
+    "no-null-keyword": true,
+    "no-var-keyword": true,
+    "prefer-const": true,
+    "quotemark": [true, "double"],
+    "strict-boolean-expressions":false,
+    "import-name": false,
+    "typedef": [
+      true,
+      "array-destructuring",
+      "member-variable-declaration",
+      "object-destructuring",
+      "parameter",
+      "property-declaration"
+    ],
+    "variable-name": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-microsoft-contrib"
+  ]
+}

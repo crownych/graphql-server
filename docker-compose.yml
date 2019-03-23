@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  apollo:
+    container_name: apollo
+    hostname: apollo
+    networks:
+      - network
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4001
+    volumes:
+      - "./:/app"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    hostname: mongo
+    networks:
+      - network
+    restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: example
+
+networks:
+  network:
+    driver: bridge

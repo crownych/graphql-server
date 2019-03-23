@@ -1,0 +1,24 @@
+type Query {
+	posts(author: String): [Post]
+	post(id: ID!): Post
+}
+type Mutation {
+	addPost(input: PostInput!): Post
+	deletePost(id: ID!): Post
+	updatePost(id: ID!, input: PostInput!): Post
+}
+type Post {
+    _id: ID
+    author: String!
+    title: String!
+    created_at: Timestamp
+}
+extend type Post {
+    content: String!
+}
+input PostInput {
+    author: String!
+    title: String!
+    content: String!
+    created_at: Timestamp
+}

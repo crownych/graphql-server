@@ -1,0 +1,10 @@
+/.idea
+
+# package directories
+node_modules
+
+# ts output directory
+dist
+
+# dotenv environment variables file
+.env
