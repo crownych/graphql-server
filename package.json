@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist ./coverage ./nyc_output",
     "build": "yarn clean && tsc",
     "lint": "tslint -p tsconfig.json",
     "lint-fix": "tslint --fix -p tsconfig.json",
