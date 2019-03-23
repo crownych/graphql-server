@@ -207,5 +207,7 @@ query MultipleQueriesInOneRequest {
     .then(res => res.json())
     .then(result => console.log(result.data.users))
     .catch(err => console.log(err));
+- Setting up test coverage using Mocha, Istanbul, NYC with TypeScript
+  https://azimi.me/2016/09/30/nyc-mocha-typescript.1.html
   ```  
 
