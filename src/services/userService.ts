@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 
-import { TYPES } from "../inversify.config";
 import { IUserRepository } from "../repositories";
+import { TYPES } from "../types";
 
 /*
 import { UserModel } from "mongo";
@@ -36,7 +36,9 @@ export interface IUserService {
 export class UserService implements IUserService {
     private readonly _userRepository: IUserRepository;
 
-    public constructor(userRepository: IUserRepository) {
+    public constructor(
+        @inject(TYPES.IUserRepository) userRepository: IUserRepository
+    ) {
         this._userRepository = userRepository;
     }
 

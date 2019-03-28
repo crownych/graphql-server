@@ -1,6 +1,7 @@
 import { AuthenticationError } from "apollo-server-express";
-import { container, TYPES } from "../inversify.config";
+import { container } from "../inversify.config";
 import { IPostService, IUserService } from "../services";
+import { TYPES } from "../types";
 
 const userService: IUserService = container.get<IUserService>(TYPES.IUserService);
 const postService: IPostService = container.get<IPostService>(TYPES.IPostService);

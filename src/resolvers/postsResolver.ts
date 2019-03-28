@@ -1,5 +1,6 @@
-import { container, TYPES } from "../inversify.config";
+import { container } from "../inversify.config";
 import { IPostService } from "../services";
+import { TYPES } from "../types";
 
 const postService: IPostService = container.get<IPostService>(TYPES.IPostService);
 

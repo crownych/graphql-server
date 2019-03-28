@@ -1,6 +1,7 @@
+import { injectable } from "inversify";
+
 import "reflect-metadata";
 
-import { injectable } from "inversify";
 import { IPostRepository } from "../IPostRepository";
 import { PostModel } from "./model";
 
