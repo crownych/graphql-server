@@ -1,5 +1,5 @@
-import { injectable } from "inversify";
-import { IPostRepository, MongoPostRepository } from "../repositories";
+import { inject, injectable } from "inversify";
+import { IPostRepository } from "../repositories";
 
 /*
 import { PostModel } from "mongo";
@@ -55,7 +55,7 @@ export class PostService implements IPostService {
      * Create a PostService.
      * @param postRepository - The post repository.
      */
-    constructor(postRepository: IPostRepository) {
+    public constructor(postRepository: IPostRepository) {
         this._postRepository = postRepository;
     }
 

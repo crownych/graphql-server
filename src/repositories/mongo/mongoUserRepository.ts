@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { injectable } from "inversify";
 import { IUserRepository } from "../IUserRepository";
 import { UserModel } from "./model";

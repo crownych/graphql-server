@@ -1,7 +1,7 @@
 import { container, TYPES } from "../inversify.config";
 import { IPostService } from "../services";
 
-const postService: IPostService = container.get<IPostService>(TYPES.PostService);
+const postService: IPostService = container.get<IPostService>(TYPES.IPostService);
 
 const postResolver = {
     Mutation: {

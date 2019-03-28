@@ -8,4 +8,4 @@ const PostSchema = new mongoose.Schema({
 });
 
 const PostModel = mongoose.model("posts", PostSchema);
-export { PostModel, PostSchema };
+export { PostModel };
