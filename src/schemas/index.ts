@@ -10,7 +10,7 @@
 // 方法 2: 將 schema 定義在文字檔案中 (.graphql 檔案)
 import { fileLoader, mergeTypes } from "merge-graphql-schemas";
 import path from "path";
-import { buildSchema } from "graphql";
+//import { buildSchema } from "graphql";
 
 // https://github.com/okgrow/merge-graphql-schemas
 // - When using the fileLoader function you can also implement your type definitions using .graphql or .graphqls files.

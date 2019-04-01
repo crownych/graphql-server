@@ -9,6 +9,7 @@
     "lint": "tslint -p tsconfig.json",
     "lint-fix": "tslint --fix -p tsconfig.json",
     "start": "ts-node -r dotenv/config src/server.ts",
+    "start-prod": "ts-node -r dotenv/config src/server.ts",
     "test": "nyc mocha --compilers ts-node/register -r source-map-support/register --full-trace --bail ./test/**/*.test.ts",
     "serve": "node -r dotenv/config dist/src/server.js",
     "doc": "typedoc --out dist/docs --mode modules ./src",

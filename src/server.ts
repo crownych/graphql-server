@@ -7,7 +7,7 @@ import { ApolloServer } from "apollo-server-express";
 import * as bodyParser from "body-parser";
 import cors from "cors";    // tslint:disable-line
 import express from "express";
-import { GraphQLSchema } from "graphql";
+import { GraphQLError, GraphQLFormattedError, GraphQLSchema } from "graphql";
 import { MONGO_URL, SERVER_PORT } from "./utils/config";
 
 // define an async function to start server
@@ -60,6 +60,31 @@ async function start() {
         context: async (req: any) => {
             // If we want to put some restriction
         }
+        /*
+        ,
+        // Masking and logging errors
+        // @See https://www.apollographql.com/docs/apollo-server/features/errors#masking-and-logging-errors
+        formatError: (error: GraphQLError) => {
+            console.log(error);
+
+            // Solution 1: 自訂 GraphQLFormattedError
+            // return {
+            //     message: error.message,
+            //     locations: error.locations,
+            //     path: error.path,
+            //     extensions: {
+            //         code: error.extensions ? error.extensions.code : undefined
+            //     }
+            // };
+
+            // Solution 2: delete extensions.exception property (stacktrace 會放在 extensions.exception.stacktrace)
+            // Or, you can delete the exception information
+            if (error.extensions) {
+                delete error.extensions.exception;
+            }
+            return error;
+        }
+         */
     });
     // 只把 CORS 設定在 Apollo Server 上
     //server.applyMiddleware({app, cors: corsOptions});
