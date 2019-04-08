@@ -59,9 +59,9 @@ async function start() {
         schema,
         context: async (req: any) => {
             // If we want to put some restriction
-        }
+        },
+
         /*
-        ,
         // Masking and logging errors
         // @See https://www.apollographql.com/docs/apollo-server/features/errors#masking-and-logging-errors
         formatError: (error: GraphQLError) => {
@@ -77,7 +77,11 @@ async function start() {
             //     }
             // };
 
-            // Solution 2: delete extensions.exception property (stacktrace 會放在 extensions.exception.stacktrace)
+            // Solution 2: 設定 NODE_ENV=production 或 NODE_ENV=test，會清除 stacktrace
+
+            // Solution 3: To disable stacktraces for production, pass debug: false to the Apollo server constructor
+
+            // Solution 4: delete extensions.exception property (stacktrace 會放在 extensions.exception.stacktrace)
             // Or, you can delete the exception information
             if (error.extensions) {
                 delete error.extensions.exception;
@@ -85,6 +89,11 @@ async function start() {
             return error;
         }
          */
+
+        formatResponse: (response: Response) => {
+            console.log(response);
+            return response;
+        }
     });
     // 只把 CORS 設定在 Apollo Server 上
     //server.applyMiddleware({app, cors: corsOptions});
