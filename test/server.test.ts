@@ -27,14 +27,12 @@ const schema: GraphQLSchema = makeExecutableSchema({typeDefs, resolvers});
 const server = new ApolloServer({
     schema
 });
+// use the test server to create a query function
+const { query } = createTestClient(server);
 
 describe("Test GraphQL Server", () => {
     it("Query hello", async () => {
-        // use the test server to create a query function
-        const { query } = createTestClient(server);
-
         const HELLO = gql`query hello {hello}`;
-
         const res = await query({ query: HELLO});
         expect(res.data).to.have.property('hello', "Hello world!");
     });
