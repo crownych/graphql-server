@@ -207,7 +207,20 @@ query MultipleQueriesInOneRequest {
     .then(res => res.json())
     .then(result => console.log(result.data.users))
     .catch(err => console.log(err));
+  ```
+  
+- XMLHttpRequest GraphQL API example  
+  ```javascript
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'http://localhost:4001/graphql', true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.onreadystatechange = function() {//Call a function when the state changes.
+      if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+          console.log(xhr.response)
+      }
+  }
+  xhr.send(JSON.stringify({operationName: "users", query:"query users{users{_id name}}", variables: {}}));  
+  ```  
 - Setting up test coverage using Mocha, Istanbul, NYC with TypeScript
   https://azimi.me/2016/09/30/nyc-mocha-typescript.1.html
-  ```  
 

@@ -4,26 +4,26 @@ import "reflect-metadata";
 import { IUserService, UserService } from "../../src/services";
 import { MockUserRepository } from "../repositories";
 
+let userService: IUserService;
+
+before(() => {
+    // run before all tests in this block
+    userService = new UserService(new MockUserRepository());
+});
+
+after(() => {
+    // run after all tests in this block
+});
+
+beforeEach(() => {
+    // run before each test in this block
+});
+
+afterEach(() => {
+    // run after each test in this block
+});
+
 describe("UserService", () => {
-    let userService: IUserService;
-
-    before(() => {
-        // run before all tests in this block
-        userService = new UserService(new MockUserRepository());
-    });
-
-    after(() => {
-        // run after all tests in this block
-    });
-
-    beforeEach(() => {
-        // run before each test in this block
-    });
-
-    afterEach(() => {
-        // run after each test in this block
-    });
-
     it("Add user", () => {
         const user: any = userService.addUser("Tod", "Shen");
         //console.log("user:", user);
